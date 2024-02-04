@@ -1,0 +1,6 @@
+[tools]
+darklua = { github = "seaofvoices/darklua", version = "=0.12.1"}
+luau-lsp = { github = "JohnnyMorganz/luau-lsp", version = "=1.27.1"}
+rojo = { github = "rojo-rbx/rojo", version = "=7.4.0"}
+selene = { github = "Kampfkarren/selene", version = "=0.26.1"}
+stylua = { github = "JohnnyMorganz/StyLua", version = "=0.20.0"}

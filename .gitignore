@@ -1,0 +1,16 @@
+/site
+
+/*.rbxl
+/*.rbxlx
+/*.rbxl.lock
+/*.rbxlx.lock
+/*.rbxm
+/*.rbxmx
+
+/node_modules
+
+.yarn
+
+/globalTypes.d.lua
+
+**/sourcemap.json
