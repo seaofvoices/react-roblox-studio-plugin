@@ -33,7 +33,7 @@ local function ToolbarButton(props: Props)
         newButton.Enabled = enabled
         newButton:SetActive(active)
         button.current = newButton
-    end, { id, toolTip, iconAsset, text or false } :: { any })
+    end, { id } :: { any }) -- the button cannot be created again, so just depend on `id`
 
     React.useEffect(function(): (() -> ())?
         if button.current ~= nil and onClick ~= nil then
@@ -50,6 +50,12 @@ local function ToolbarButton(props: Props)
             button.current:SetActive(active)
         end
     end, { active, button.current or false } :: { any })
+
+    React.useEffect(function()
+        if button.current and iconAsset ~= '' then
+            button.current.Icon = iconAsset
+        end
+    end, { iconAsset, button.current or false } :: { any })
 
     React.useEffect(function()
         if button.current then

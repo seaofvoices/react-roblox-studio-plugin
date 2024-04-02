@@ -4,7 +4,7 @@ local PluginContext = require('./contexts/PluginContext')
 
 export type Props = {
     plugin: Plugin,
-    children: React.React_Node,
+    children: React.ReactNode,
 }
 
 local function RobloxPlugin(props: Props)
