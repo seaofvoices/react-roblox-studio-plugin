@@ -84,9 +84,7 @@ local function Widget(props: Props)
     end, { dockWidget or false, title } :: { any })
 
     React.useEffect(function()
-        -- print('enabled changed:', enabled)
         if dockWidget ~= nil and dockWidget.Enabled ~= enabled then
-            -- print("define enabled!")
             dockWidget.Enabled = enabled
         end
     end, { dockWidget or false, enabled } :: { any })

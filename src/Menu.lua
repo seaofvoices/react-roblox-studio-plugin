@@ -1,6 +1,7 @@
 local React = require('@pkg/@jsdotlua/react')
 local Signal = require('@pkg/luau-signal')
 
+local MenuContext = require('./contexts/MenuContext')
 local PluginContext = require('./contexts/PluginContext')
 
 type Signal<T...> = Signal.Signal<T...>
@@ -10,6 +11,7 @@ export type Props = {
     title: string,
     icon: string?,
     openMenu: Signal<()>,
+    children: React.ReactNode,
 }
 
 local function Menu(props: Props)
@@ -20,16 +22,28 @@ local function Menu(props: Props)
 
     local plugin = React.useContext(PluginContext)
 
-    local menu, setMenu = React.useState(nil :: PluginAction?)
+    local menu, setMenu = React.useState(nil :: PluginMenu?)
 
     React.useEffect(function()
         local pluginMenu = plugin:CreatePluginMenu(id, title, icon)
-        -- print('pluginMenu.Parent', pluginMenu.Parent)
         setMenu(pluginMenu)
         return function()
             pluginMenu:Destroy()
         end
-    end, { id, title, icon })
+    end, { id }) -- only re-created the menu if the id changes
+    -- update the title and icon in other useEffects
+
+    React.useEffect(function()
+        if menu then
+            menu.Title = title
+        end
+    end, { title :: any, menu or false })
+
+    React.useEffect(function()
+        if menu then
+            menu.Icon = icon
+        end
+    end, { icon :: any, menu or false })
 
     React.useEffect(function()
         return openMenu
@@ -37,9 +51,13 @@ local function Menu(props: Props)
                 menu:ShowAsync()
             end)
             :disconnectFn()
-    end, { menu :: any, openMenu })
+    end, { openMenu :: any, menu or false })
 
-    return nil
+    return React.createElement(
+        MenuContext.Provider,
+        { value = menu },
+        if menu then props.children else nil
+    )
 end
 
 return Menu
