@@ -5,7 +5,7 @@ local ToolbarContext = require('./contexts/ToolbarContext')
 
 export type Props = {
     name: string,
-    children: React.React_Node,
+    children: React.ReactNode,
 }
 
 local function Toolbar(props: Props)
@@ -29,7 +29,11 @@ local function Toolbar(props: Props)
         end
     end, { toolbar :: any, name })
 
-    return React.createElement(ToolbarContext.Provider, { value = toolbar }, props.children)
+    return React.createElement(
+        ToolbarContext.Provider,
+        { value = toolbar },
+        if toolbar then props.children else nil
+    )
 end
 
 return Toolbar

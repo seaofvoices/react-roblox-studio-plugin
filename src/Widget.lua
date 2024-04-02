@@ -17,7 +17,7 @@ export type Props = {
     onFocusLost: () -> ()?,
     onFocused: () -> ()?,
     onSizeChange: (size: Vector2) -> ()?,
-    children: React.React_Node,
+    children: React.ReactNode,
 }
 
 local function Widget(props: Props)
