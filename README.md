@@ -4,16 +4,16 @@ A component library to create Roblox Studio plugins using [react-lua](https://gi
 
 ## Installation
 
-Add `react-roblox-studio-plugin` in your dependencies:
+Add `@seaofvoices/react-roblox-studio-plugin` in your dependencies:
 
 ```bash
-yarn add react-roblox-studio-plugin
+yarn add @seaofvoices/react-roblox-studio-plugin
 ```
 
 Or if you are using `npm`:
 
 ```bash
-npm install react-roblox-studio-plugin
+npm install @seaofvoices/react-roblox-studio-plugin
 ```
 
 ## License
