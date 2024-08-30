@@ -1,6 +1,6 @@
 {
   "name": "@seaofvoices/react-roblox-studio-plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React component library to create Roblox plugins",
   "license": "MIT",
   "repository": {
