@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.1.2
+
 - re-export prop types from components ([#5](https://github.com/seaofvoices/react-roblox-studio-plugin/pull/5))
 
 ## 0.1.1
