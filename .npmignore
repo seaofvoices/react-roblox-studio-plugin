@@ -3,6 +3,9 @@
 /docs
 /site
 
+/build
+/temp
+
 /*.json
 /*.json5
 /*.yml
@@ -12,11 +15,15 @@
 /*.tgz
 
 *.d.lua
-**/*.spec.lua
-**/*.test.lua
+*.d.luau
+*.spec.lua
+*.spec.luau
+*.test.lua
+*.test.luau
 **/tests
 **/__tests__
-**/jest.config.lua
+jest.config.lua
+jest.config.luau
 
 **/*.rbxl
 **/*.rbxlx
